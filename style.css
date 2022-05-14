@@ -4,7 +4,7 @@
     font-weight: bold;
 }
 body {
-    background: linear-gradient (to right, black, red)
+    background: linear-gradient(to right, rgb(49, 46, 46), rgb(180, 12, 12));
 }
 
 .grid-container {
