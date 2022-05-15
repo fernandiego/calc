@@ -56,7 +56,7 @@ class Calculator {
             case "-":
                 result = _previousOperand - _currentOperand;
                 break;
-            case "÷":
+            case "/":
                 result = _previousOperand / _currentOperand;
                 break;
             case "*":
