@@ -22,3 +22,18 @@ body {
     border: 1px solid black;
     outline: none;
 }
+
+.grid-container > .operator {
+    background:rgb(255, 227, 227)
+}
+
+.grid-container > .result {
+    background:rgb(255, 255, 255)
+}
+.span-two {
+    grid-column: span 2;
+}
+.grid-container > .output {
+    grid-column: 1 / -1;
+    border: 3px solid black;
+}
