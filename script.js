@@ -1,5 +1,5 @@
-const numberButtons = document.querySelector('[data-number]')
-const operationButtons = document.querySelector('[data-operator]')
+const numberButtons = document.querySelectorAll('[data-number]')
+const operationButtons = document.querySelectorAll('[data-operator]')
 const resultButton = document.querySelector('[data-result]')
 const clearButton = document.querySelector('[data-clear]')
 const deleteButton = document.querySelector('[data-delete]')
@@ -11,17 +11,31 @@ class Calculator {
         this.dataPreviousTextElement = dataPreviousTextElement;
         this.dataCurrentTextElement = dataCurrentTextElement;
     }
+
+appendNumber(number){
+    this.currentOperand = `${this.currentOperand}${number.toString()}`
+}
+
     clear() {
         this.currentOperand = "";
         this.previousOperand = "";
         this.operation = undefined;
     }
     updateDisplay () {
-        this.previousOperand
+        this.dataPreviousTextElement.innerText = this.previousOperand;
+        this.dataCurrentTextElement.innerText = this.currentOperand;
     }
 }
-const calculator = new Calculator(dataPreviousButton, dataCurrentButton);
+const calculator = new Calculator(dataPreviousTextElement, dataCurrentTextElement);
+
+for (const numberButton of numberButtons) {
+    numberButton.addEventListener('click', () => {
+        calculator.appendNumber(numberButton.innerText);
+        calculator.updateDisplay();
+    })
+}
 
 clearButton.addEventListener('click', () => {
-    this.clear();
+    calculator.clear();
+    calculator.updateDisplay();
 })
